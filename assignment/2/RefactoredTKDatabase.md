@@ -4,4 +4,4 @@ This document outlines the design for a database used by a hockey timekeeper whi
 
 ## Public Interface
 
-This program consists of six classes and two subclasses: the 'Player' class, the 'Skater' class (extends the 'Player' class), the 'Goalie' class (extends the 'Player' class), the 'PlayerList' class, the 'Main' class, the 'TableFactory' class, the 'TeamReader' class, and the 'TeamWriter' class. 
+This program consists of six classes and two subclasses: the `Player` class, the `Skater` class (extends the `Player` class), the `Goalie` class (extends the `Player` class), the `PlayerList` class, the `Main` class, the `TableFactory` class, the `TeamReader` class, and the `TeamWriter` class. 
