@@ -66,6 +66,31 @@ The information stored by the `Goalie` includes:
  * Shots Against
  * Goals Against
  * Shutouts
+ * Games Played
  * Minutes Played
  * Goals against average
  * Save Percentage
+
+The `Goalie` class contains two constructors:
+
+ * `roster` serves to add a new Goalie to the team list using only their roster information through the use of the super class's constructor. All play information will be set to zero
+ * `recreation` serves to add a new Goalie, this time including both roster and play information/statistics using the super class's constructor and additonal play information passed as parameters.
+
+The `Goalie` class contains the following accessor methods:
+
+ * `getShotsA`- returns the (int) number of shots taken against the goalie
+ * `getGoalsA` - returns the (int) number of goals scored against the goalie
+ * `getShutouts` - returns the (int) number of shutout games the goalie has
+ * `getMinutesPlayed` - returns total minutes (int) played by the goalie
+ * `getGGA` - returns the goals against average (double) statistic of the goalie
+ * `getSV` - returns the save percentage (double) statistic of the goalie
+
+The `Goalie` class also contains the following methods:
+ * `recordShotA` - records a shot taken against the goalie by incrementing the Shots Against value by one
+ * `recordGoalA` - records a goal scored against the goalie by incrementing the Goals Against value by one
+ * `recordMinutes` - records the total number of minutes played by the goalie in one game and adds it to the total Minutes Played value and increments the Games Played value by one
+ * `recordSOMinutes` - records the total number of minutes played by the goalie in a shoutout game and adds it to the total Minutes Played value and increments both the Games Played value and the Shutout value by one
+ 
+Note: The Values of Goals against average and Save percentage will be derived from the values of the other statistics.
+ * Goals against average - will be derived by multiplying Goals Against by 60 Minutes and dividing the product by the total minutes played by the goalie
+ * Save percentage - will be derived by dividing goals against by goals saved, and subtracting the result from 1
