@@ -20,7 +20,7 @@ The Player Class contains one consstrcutor method which accepts the player's ros
 
 ### The Skater Class
 
-The `Skater` class stores both position information and play information for each Skater:
+The `Skater` class extends the `Player` class and stores both position information and play information for each Skater.
   
 The information stored by the `Player` class includes: 
 * position (left wing (LW), right wing (RW), centre (C), or defense (D)
@@ -56,3 +56,16 @@ The `Skater` class also contains the following methods:
 * `recordPPAssist` - allows the user to record Power Play assists for up to two skaters, the selected player's Power Point assists and Power Play points increase by one
 * `recordShot` - increases the skater's total shots value by one
 * `calcShootPercent` - this method calculates the skater's shooting percentage by dividing the sum of goals and Power Play goals by the total number of shots taken
+
+### The Goalie Class
+
+The `Goalie` class extends the `Player` class and stores both position information and play information for each Goalie.
+
+The information stored by the `Goalie` includes:
+ * Poition (Goalie)
+ * Shots Against
+ * Goals Against
+ * Shutouts
+ * Minutes Played
+ * Goals against average
+ * Save Percentage
