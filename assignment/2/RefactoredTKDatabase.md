@@ -15,3 +15,44 @@ The Player Class is an abstract class that specifies the general roster informat
  * Weight
  * Height
  * and Jersey Number
+
+The Player Class contains one consstrcutor method which accepts the player's roster information as parameters for a new `Player` object. This constrcutor method is abstract and is only meant to be used by the subclasses of the `Player` class, the `Skater` class and the `Goalie` class, in order to store common roster data that both types of `Player` objects share.
+
+### The Skater Class
+
+The `Skater` class stores both position information and play information for each Skater:
+  
+The information stored by the `Player` class includes: 
+* position (left wing (LW), right wing (RW), centre (C), or defense (D)
+* the Skater's goals
+* assists
+* points (goals + assists)
+* shots
+* shooting percentage
+* power play points, shots, and assists.
+  
+The `Skater` class contains three constructors:
+
+* `roster`- serves to add a new Skater to the team list using only their roster information through the use of the super class's constructor. All play information will be set to zero (i.e. if a new player has signed to the team during the pre-season)
+* `recreation`- serves to add a new Skater, this time including both roster and play information using the super class's constructor and additonal play information passed as parameters. (i.e. if a player gets traded to a new team mid-season, they will keep their pre-existing stats)
+* `copy`- copies an existing `Skater` object and its pre-existing values into a new, identical object
+
+The `Skater` class contains the following assessors:
+
+* `getPoints` - returns the total number (int) of points the skater has accumulated (goals + assists)
+* `getAssists` - returns the total number (int) of assists the skater has made
+* `getGoals` - returns the total number (int) of goals the skater has scored
+* `getPPPoints` - returns the total number (int) of Power Play points the skater has accumulated (Power play goals + power play assists)
+* `getPPAssists` - returns the total number (int) of Power Play assists the skater has made
+* `getPPGoals` - returns the total number (int) of Power Play goals the skater has scored
+* `getTotalShots` - returns the total number (int) of shots taken by the skater
+* `getShootPercent` - returns the skater's overall shooting percentage (double)
+
+The `Skater` class also contains the following methods:
+
+* `recordGoal` - the selected Skater's goals, points, and total shots increase (through the `recordShot()` method) by one, the user is also prompted to record assists for up to two players through the `recordAssist()` method
+* `recordAssist` - allows the user to record assists for up to two skaters, the selected player's assists and points increase by one
+* `recordPPGoal` - the selected skater's Power Play goals, Power Play points, and total shots (through the `recordShot()` method) increase by one, the user is also prompted to record Power Play assists for up to two players through the `recordPPAssist` method
+* `recordPPAssist` - allows the user to record Power Play assists for up to two skaters, the selected player's Power Point assists and Power Play points increase by one
+* `recordShot` - increases the skater's total shots value by one
+* `calcShootPercent` - this method calculates the skater's shooting percentage by dividing the sum of goals and Power Play goals by the total number of shots taken
