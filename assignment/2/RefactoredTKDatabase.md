@@ -115,7 +115,7 @@ The `PlayerList` class contains the following methods:
 * `listPlayers` - a method used to print out a list of all `Player` objects stored in the `PlayerList` object along with their roster and play information (includes both `Skater` and `Goalie` objects)
 
 ### The Menu Class
-The `Menu` class is the shortest and simplest of the three and will allow the user to interact with the database program.
+The `Menu` class is a simple class that allows the user to interact with the database program.
 
 The `Menu` class will prompt the user to do the following:
 
@@ -132,7 +132,13 @@ The `Menu` class will prompt the user to do the following:
 * Record a shutout in a game, as well as total minutes played during the shutout by a goalie
 
 ### The TableFactory Class
+The role of the `TableFactory` class is to read data from a specified `PlayerList` object and return a String containing the data in one of several formats:
+ * A roster information list for all `Player` objects (both `Goalie` and `Skater` objects included) in the `PlayerList`
+ * A list of all `Skater` objects in the `PlayerList` and their play information
+ * A list of all `Goalie` objects in the `PlayerList` and their play information
 
 ### The TeamReader Class
+The `TeamReader` class is a simple class that uses the data presented in a specified file to return a `PlayerList` object containing the data found in the file. This is done by the class' only method, the `read` method, which is a public-static helper method.
 
 ### The TeamWriter Class
+The `TeamWriter` class is another simple class that accepts a specified output file and a `PlayerList` object and writes the data contained in the passed `PlayerList` to the output file. This is done by the class' only method, the `write` method, which is a public-static helper method.
