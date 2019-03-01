@@ -17,8 +17,8 @@ The Player Class is an abstract class that specifies the general roster informat
 
 The Player Class contains one consstrcutor method which accepts the player's roster information as parameters for a new `Player` object. This constrcutor method is abstract and is only meant to be used by the subclasses of the `Player` class, the `Skater` class and the `Goalie` class, in order to store common roster data that both types of `Player` objects share.
 
-### The Skater Class
-The `Skater` class extends the `Player` class and stores both position information and play information for each Skater.
+### The Skater SubClass
+The `Skater` subclass extends the `Player` class and stores both position information and play information for each Skater.
   
 The information stored by the `Player` class includes: 
 * position (left wing (LW), right wing (RW), centre (C), or defense (D)
@@ -57,8 +57,8 @@ The `Skater` class also contains the following methods:
 * `rosterToString` - used to print out the object's roster information
 * `playToString` - used to print out the object's roster and play information
 
-### The Goalie Class
-The `Goalie` class extends the `Player` class and stores both position information and play information for each Goalie.
+### The Goalie SubClass
+The `Goalie` subclass extends the `Player` class and stores both position information and play information for each Goalie.
 
 The information stored by the `Goalie` includes:
  * Poition (Goalie)
@@ -142,3 +142,19 @@ The `TeamReader` class is a simple class that uses the data presented in a speci
 
 ### The TeamWriter Class
 The `TeamWriter` class is another simple class that accepts a specified output file and a `PlayerList` object and writes the data contained in the passed `PlayerList` to the output file. This is done by the class' only method, the `write` method, which is a public-static helper method.
+
+## Private Implementation
+
+### The Player Class
+
+### The Skater SubClass
+
+### The Goalie SubClass
+
+### The Menu Class
+
+### The TableFactory Class
+
+### The TeamReader Class
+
+### The TeamWriter Class
