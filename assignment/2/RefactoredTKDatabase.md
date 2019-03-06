@@ -239,25 +239,52 @@ When creating a new `Goalie`, you have the option of providing only the roster i
 ### The Menu Class
 
 #### Important Methods
- * listAllRoster this method is used to display the roster information of all players
- * listAllStat this method is used to display the statistical information of all players
- * addNewPlayer this method adds a new player to the last index of the Player List ArrayList
- * recShot this method records a shot to a specified skater
- * recGoal this method records a goal for a specified skater and up to two assists for two other specified skaters
- * recPPGoal this method records a PowerPlay goal for a specified skater and up to two power play assists for two other specified skaters
- * recGoalsAgainst this method records a goal against the goalie for a specified goalie
- * recShotsAgainst this method records a shot against the goalie for a specified goalie
- * recShutouts this method records a shutout for a specified goalie
- * recMinutesPlayed this method records minutes played for a specified goalie
+ * `listSkaters` - a method used to print out a list of every `Skater` object stored in the `PlayerList` object along with their roster and play information 
+* `listGoalies` - a method used to print out a list of every `Goalie` object stored in the `PlayerList` object along with their roster and play information
+* `listPlayers` - a method used to print out a list of all `Player` objects stored in the `PlayerList` object along with their roster and play information (includes both `Skater` and `Goalie` objects)
+ * `addSkater` - this method adds a new `Skater` to the last index of the `PlayerList` ArrayList
+ * `addGoalie` - this method adds a new `Goalie` to the last index of the `PlayerList` ArrayList
+ * `addShot` this method records a shot to a specified skater
+ * `addGoal` this method records a goal for a specified skater and up to two assists for two other specified skaters
+ * `addPPGoal` - this method records a PowerPlay goal for a specified skater and up to two power play assists for two other specified skaters
+ * `addGoalA` - this method records a shot and a goal against the goalie for a specified goalie
+ * `addShotsA` - this method records a shot against the goalie for a specified goalie
+ * `addSOMinutes` - this method records a shutout and minutes played during the shutout for a specified goalie, as well as a game played
+ * `addMinutes` - this method records minutes played for a specified goalie, as well as a game played
 
 ### The TableFactory Class
 
+#### Important Methods
+* `listAllPlayersRoster` - this method will return all the Players' roster information in a table as a `String`
+* `listAllSkatersStat` - this method will return all the Skaters' statistic/play information in a table as a `String`
+* `listAllGoaliesStats` - this method will return all the Goalies' statistic/play information in a table as a `String`
+
 ### The RosterTable Class
+
+#### Important Methods
+* `rosterTable` - constructor that will pass in the `PlayerList`
+* `createTableString` - this method will return a `String` containing a table listing the roster information of the `Player` objects in the `PlayerList` 
 
 ### The SkaterStatTable Class
 
+#### Important Methods
+ * `SkaterStatTable` - constructor that will pass in the PlayerList
+ * `createTableString` - this method will return a `String` containing a table listing the statistic/play information of the `Skater` objects in the `PlayerList`
+
 ### The GoalieStatTable Class
 
+#### Important Methods
+ * `GoalieStatTable` - constructor that will pass in the PlayerList
+ * `createTableString` - this method will return a `String` containing a table listing the statistic/play information of the `Goalie` objects in the `PlayerList`
+
 ### The TeamReader Class
+This class will pass in a file and get back a `PlayerList` containing Player data read in from the file
+
+#### Important Methods
+ * `loadFile` - this method will read all the data from the passed file and create the appropriate `Player` objects to populate the `PlayerClass` ArrayList
 
 ### The TeamWriter Class
+This class will pass in a file and the data in the `PlayerList` will be read and written to that file 
+
+#### Important Methods
+ * `saveFile` - this method will save all the information in the `PlayerList` to an output file
