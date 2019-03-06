@@ -15,7 +15,7 @@ The Player Class is an abstract class that specifies the general roster informat
  * Height
  * and Jersey Number
 
-The Player Class contains one constrcutor method which accepts the player's roster information as parameters for a new `Player` object. This constrcutor method is abstract and is only meant to be used by the subclasses of the `Player` class, the `Skater` class and the `Goalie` class, in order to store common roster data that both types of `Player` objects share.
+The Player Class contains one constructor method which accepts the player's roster information as parameters for a new `Player` object. This constructor method is abstract and is only meant to be used by the subclasses of the `Player` class, the `Skater` class and the `Goalie` class, in order to store common roster data that both types of `Player` objects share.
 
 The `Player` class also contains the following methods:
  * `getName` - returns the name of the Player
@@ -40,7 +40,7 @@ The information stored by the `Player` class includes:
 The `Skater` class contains three constructors:
 
 * `roster`- serves to add a new Skater to the team list using only their roster information through the use of the super class's constructor. All play information will be set to zero (i.e. if a new player has signed to the team during the pre-season)
-* `recreation`- serves to add a new Skater, this time including both roster and play information using the super class's constructor and additonal play information passed as parameters. (i.e. if a player gets traded to a new team mid-season, they will keep their pre-existing stats)
+* `recreation`- serves to add a new Skater, this time including both roster and play information using the super class's constructor and additional play information passed as parameters. (i.e. if a player gets traded to a new team mid-season, they will keep their pre-existing stats)
 * `copy`- copies an existing `Skater` object and its pre-existing values into a new, identical object
 
 The `Skater` class contains the following assessors:
@@ -69,7 +69,7 @@ The `Skater` class also contains the following methods:
 The `Goalie` subclass extends the `Player` class and stores both position information and play information for each Goalie.
 
 The information stored by the `Goalie` includes:
- * Poition (Goalie)
+ * Position (Goalie)
  * Shots Against
  * Goals Against
  * Shutouts
@@ -81,7 +81,7 @@ The information stored by the `Goalie` includes:
 The `Goalie` class contains two constructors:
 
  * `roster` serves to add a new Goalie to the team list using only their roster information through the use of the super class's constructor. All play information will be set to zero
- * `recreation` serves to add a new Goalie, this time including both roster and play information/statistics using the super class's constructor and additonal play information passed as parameters.
+ * `recreation` serves to add a new Goalie, this time including both roster and play information/statistics using the super class's constructor and additional play information passed as parameters.
 
 The `Goalie` class contains the following accessor methods:
 
@@ -96,7 +96,7 @@ The `Goalie` class also contains the following methods:
  * `recordShotA` - records a shot taken against the goalie by incrementing the Shots Against value by one
  * `recordGoalA` - records a goal scored against the goalie, as well as a shot against the Goalie, by incrementing the Goals Against  and Shots Against values by one
  * `recordMinutes` - records the total number of minutes played by the goalie in one game and adds it to the total Minutes Played value and increments the Games Played value by one
- * `recordSOMinutes` - records the total number of minutes played by the goalie in a shoutout game and adds it to the total Minutes Played value and increments both the Games Played value and the Shutout value by one
+ * `recordSOMinutes` - records the total number of minutes played by the goalie in a shootout game and adds it to the total Minutes Played value and increments both the Games Played value and the Shutout value by one
  * `rosterToString` - used to print out the object's roster information
  * `playToString` - used to print out the object's roster and play information
  
@@ -246,7 +246,7 @@ When creating a new `Goalie`, you have the option of providing only the roster i
  * `addGoalie` - this method adds a new `Goalie` to the last index of the `PlayerList` ArrayList
  * `addShot` this method records a shot to a specified skater
  * `addGoal` this method records a goal for a specified skater and up to two assists for two other specified skaters
- * `addPPGoal` - this method records a PowerPlay goal for a specified skater and up to two power play assists for two other specified skaters
+ * `addPPGoal` - this method records a Powerplay goal for a specified skater and up to two power play assists for two other specified skaters
  * `addGoalA` - this method records a shot and a goal against the goalie for a specified goalie
  * `addShotsA` - this method records a shot against the goalie for a specified goalie
  * `addSOMinutes` - this method records a shutout and minutes played during the shutout for a specified goalie, as well as a game played
