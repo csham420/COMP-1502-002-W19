@@ -4,7 +4,7 @@ This document outlines the design for a database used by a hockey timekeeper whi
 
 ## Public Interface
 
-This program consists of six classes and two subclasses: the `Player` class, the `Skater` class (extends the `Player` class), the `Goalie` class (extends the `Player` class), the `PlayerList` class, the `Main` class, the `TableFactory` class, the `TeamReader` class, and the `TeamWriter` class. Each of these classes and their respective subclasses will be explained in further detail below, starting with the `Player` class.
+This program consists of several classes and subclasses: the `Player` class, the `Skater` class (extends the `Player` class), the `Goalie` class (extends the `Player` class), the `PlayerList` class, the `Main` class, the `TableFactory` class, the `RosterTable` class (extends the `TableFactory` class), the `SkaterStatTable` class (extends the `TableFactory` class), the `GoalieStatTable` class (extends the `TableFactory` class), the `TeamReader` class, and the `TeamWriter` class. Each of these classes and their respective subclasses will be explained in further detail below, starting with the `Player` class.
 
 ### The Player Class
 The Player Class is an abstract class that specifies the general roster information that a new `Player` object will have. The roster information includes the player's:
@@ -15,7 +15,15 @@ The Player Class is an abstract class that specifies the general roster informat
  * Height
  * and Jersey Number
 
-The Player Class contains one consstrcutor method which accepts the player's roster information as parameters for a new `Player` object. This constrcutor method is abstract and is only meant to be used by the subclasses of the `Player` class, the `Skater` class and the `Goalie` class, in order to store common roster data that both types of `Player` objects share.
+The Player Class contains one constrcutor method which accepts the player's roster information as parameters for a new `Player` object. This constrcutor method is abstract and is only meant to be used by the subclasses of the `Player` class, the `Skater` class and the `Goalie` class, in order to store common roster data that both types of `Player` objects share.
+
+The `Player` class also contains the following methods:
+ * `getName` - returns the name of the Player
+ * `getDoB` - returns the Player's date of birth
+ * `getTown` - returns the Player's Hometown
+ * `getWeight` - returns the Player's weight
+ * `getHeight` - returns the Player's height
+ * `getNumber` - returns the Player's jersey number
 
 ### The Skater SubClass
 The `Skater` subclass extends the `Player` class and stores both position information and play information for each Skater.
@@ -86,7 +94,7 @@ The `Goalie` class contains the following accessor methods:
 
 The `Goalie` class also contains the following methods:
  * `recordShotA` - records a shot taken against the goalie by incrementing the Shots Against value by one
- * `recordGoalA` - records a goal scored against the goalie by incrementing the Goals Against value by one
+ * `recordGoalA` - records a goal scored against the goalie, as well as a shot against the Goalie, by incrementing the Goals Against  and Shots Against values by one
  * `recordMinutes` - records the total number of minutes played by the goalie in one game and adds it to the total Minutes Played value and increments the Games Played value by one
  * `recordSOMinutes` - records the total number of minutes played by the goalie in a shoutout game and adds it to the total Minutes Played value and increments both the Games Played value and the Shutout value by one
  * `rosterToString` - used to print out the object's roster information
@@ -106,7 +114,7 @@ The `PlayerList` class contains the following methods:
 * `addGoal` - passes the Skater's jersey number as a parameter and uses the `recordGoal` method from the `Skater` class to record a goal as well as make an addition to the Skater's total shots, and prompts the user to add assists for up to two Skater using the `recordAssist` method from the `Skater` class
 * `addPPGoal` - passes the Skater's jersey number as a parameter and uses the `recordPPGoal` method from the `Skater` class to record a Power Play goal as well as make an addition to the Skater's total shots, and prompts the user to add Power Play assists for up to two Skaters using the `recordPPAssist` method from the `Player` class
 * `addShotA` - passes the Goalie's jersey number as a parameter and uses the `recordShotA` method from the `Goalie` class to record a shot against the Goalie
-* `addGoalA` - passes the Goalie's jersey number as a parameter and uses the `recordGoalA` method from the `Goalie` class to record a goal against the Goalie
+* `addGoalA` - passes the Goalie's jersey number as a parameter and uses the `recordGoalA` method from the `Goalie` class to record a shot and a goal against the Goalie
 * `addMinutes` - passes the Goalie's jersey number as a parameter and uses the `recordMinutes` method from the `Goalie` class to record the total amount of minutes a Goalie has played during one game, and increases the value of the Games Played value by one
 * `addSOMinutes` - passes the Goalie's jersey number as a parameter and uses the `recordSOMinutes` method from the `Goalie` class to record the total amount of minutes a Goalie has played during one shutout game, and increases the value of the Games Played value and the Shutout value by one 
 * `searchPlayer` - a search method used to find a player's roster info and stats using their jersey number
@@ -137,6 +145,27 @@ The role of the `TableFactory` class is to read data from a specified `PlayerLis
  * A list of all `Skater` objects in the `PlayerList` and their play information
  * A list of all `Goalie` objects in the `PlayerList` and their play information
 
+### The RosterTable Class
+The `RosterTable` is a subclass of the `TableFactory` class. The purpose of the `RosterTable` class is to accept a `PlayerList` object and return a formatted `String` of roster information for all the `Player` objects in the specified `PlayerList`.
+
+The `RosterTable` class contains the following methods:
+* `RosterTable` - constructor method that will accept a `PlayerList` object as a parameter
+* `createRosterString` - this method will read the roster info from the `PlayerList` and return a table containing the roster information as a `String`
+
+### The SkaterStatTable Class
+The `SkaterStatTable` is a subclass of the `TableFactory` class. The purpose of the `SkaterStatTable` class is to accept a `PlayerList` object and return a formatted `String` of `Skater` statistic/play information for all the `Skater` objects in the specified `PlayerList`.
+
+The `SkaterStatTable` class contains the following methods:
+* `SkaterStatTable` - constructor method that will accept a `PlayerList` object as a parameter
+* `createSkaterString` - this method will read the statistics info from the `PlayerList` and return a table containing the play information as a `String`
+
+### The GoalieStatTable Class
+The `GoalieStatTable` is a subclass of the `TableFactory` class. The purpose of the `GoalieStatTable` class is to accept a `PlayerList` object and return a formatted `String` of `Goalie` statistic/play information for all the `Goalie` objects in the specified `PlayerList`.
+
+The `GoalieStatTable` class contains the following methods:
+* `GoalieStatTable` - constructor method that will accept a `PlayerList` object as a parameter
+* `createGoalieString` - this method will read the statistics info from the `PlayerList` and return a table containing the play information as a `String`
+
 ### The TeamReader Class
 The `TeamReader` class is a simple class that uses the data presented in a specified file to return a `PlayerList` object containing the data found in the file. This is done by the class' only method, the `read` method, which is a public-static helper method.
 
@@ -147,13 +176,87 @@ The `TeamWriter` class is another simple class that accepts a specified output f
 
 ### The Player Class
 
+The `Player` class needs to store the following roster information:
+* name - String
+* date of birth - String
+* home town - String
+* weight - String
+* height - String
+* jersey number - String
+* position - enum {LW, RW, C, D}
+
+#### Important Methods
+ * `toString` - will return a `String` containing the Player's roster information in a specific format
+ 
+There are also accessor methods (`get()`) for each variable included in the roster information.
+
 ### The Skater SubClass
+
+The `Skater` subclass will inherit the roster information from the `Player` superclass and encapsulate/record all of the Skater's statistic/play information 
+
+The `Skater` subclass will store the following play information:
+* number of goals scored by the player - double
+* number of assists made by the player - int
+* number of Power Play goals the player has registered - int 
+* number of Power Play assists the player has registered - int
+* number of shots the player has registered - double
+
+There are also accessor methods (`get()`) for each variable included in the play information.
+
+Each skater's points can be directly derived from the goals and assists of each skater (including the Power Play counterparts of each statistic). I also chose to store values of the goals and shots as doubles, as they will later be used to calculate the skater's shooting percentage, which would be more accurately recording in the form as a `double` as opposed to an `int`. When it comes to printing out or displaying the goals or shots individually, they can be casted into the `int` form in order to display a cleaner looking stat sheet.
+
+When creating a new `Skater`, you have the option of providing only the roster information (through the use of the super constructor) or the roster information and play information if the `Skater` has pre-existing stats.
+
+#### Important Methods
+* `recordGoal` - a void method that should increase the skater's goal stat by one, increase the skater's total shots taken using the `recordShot` method, and prompt the `recordAssist` method which allows for up to two skaters to have their assist stat increased by one
+* `recordPPGoal` - a void method identical to the `recordGoal` method, but increases the Power Play variables of the goals and assists (prompts `recordPPAssist` method) stats as opposed to the standard versions (the normal `recordShot` method is still called)
+* `recordShot` - a void method that increases the skater's total shots value by one
 
 ### The Goalie SubClass
 
+The `Goalie` subclass will inherit the roster information from the `Player` superclass and encapsulate/record all of the Goalie's statistic/play information.
+
+The `Goalie` subclass will store the following play information:
+ * the number of shots taken against the goalie - double
+ * the number of goals scored against the goalie - double
+ * the number of shutout games the goalie has played - int
+ * the number of minutes the goalie has played - int
+ * the goalie's goals against average statistic - double
+ * the goalie's save percentage statistic - double 
+
+Similar as to in the `Skater` class, the values of Shots Against and Goals Against are stored as doubles because they will later be used in calculations to derive the values of Goals Against Average and Save Percentage and storing them as doubles would help preserve accuracy.
+
+When creating a new `Goalie`, you have the option of providing only the roster information (through the use of the super constructor) or the roster information and play information if the `Goalie` has pre-existing stats.
+
+#### Important Methods
+ * `recordShotA` - a void method that should increase the goalie's Shots Against (double) statistic by one
+ * `recordGoalA` - a void method that should increase the goalie's Goals Against (double) and Shots Against (double) statistic by one
+ * `recordMinutes` - a void method that should add the inputted amount of minutes played in a game to a goalie's total minutes played (int), and increments the games played (int) statistic by one
+ * `recordSOMinutes` - a void method that should add the inputted amount of minutes played in a shutout game to a goalie's total minutes played (int), and increments the games played (int) and shutout games played (int) statistic by one
+
+### The PlayerList Class
+
 ### The Menu Class
 
+#### Important Methods
+ * listAllRoster this method is used to display the roster information of all players
+ * listAllStat this method is used to display the statistical information of all players
+ * addNewPlayer this method adds a new player to the last index of the Player List ArrayList
+ * recShot this method records a shot to a specified skater
+ * recGoal this method records a goal for a specified skater and up to two assists for two other specified skaters
+ * recPPGoal this method records a PowerPlay goal for a specified skater and up to two power play assists for two other specified skaters
+ * recGoalsAgainst this method records a goal against the goalie for a specified goalie
+ * recShotsAgainst this method records a shot against the goalie for a specified goalie
+ * recShutouts this method records a shutout for a specified goalie
+ * recMinutesPlayed this method records minutes played for a specified goalie
+
 ### The TableFactory Class
+
+### The RosterTable Class
+
+### The SkaterStatTable Class
+
+### The GoalieStatTable Class
 
 ### The TeamReader Class
 
